@@ -59,6 +59,11 @@ class ImageProcessorApp(QMainWindow):
         self.camera_button.clicked.connect(self.toggle_camera)
         buttons_layout.addWidget(self.camera_button)
         
+        # Кнопка закрытия приложения
+        self.close_button = QPushButton("Закрыть приложение")
+        self.close_button.clicked.connect(self.close)
+        buttons_layout.addWidget(self.close_button)
+        
         layout.addLayout(buttons_layout)
 
         # Выбор канала для отображения
@@ -297,9 +302,14 @@ class ImageProcessorApp(QMainWindow):
             y = y_spin.value()
             diameter = size_spin.value()
             self.current_operations.append(("circle", (x, y, diameter)))
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = ImageProcessorApp()
     window.show()
     sys.exit(app.exec_())
+
+
+
+
+
+    
